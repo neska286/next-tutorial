@@ -36,20 +36,7 @@ export const GET = async (request: any) => {
 
   }
 
+ 
+  
 
-  // try {
-  //   await fetch("/api/posts", {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       title,
-  //       desc,
-  //       img,
-  //       content,
-  //       username: session.data.user.name,
-  //     }),
-  //   });
-  //   mutate();
-  //   e.target.reset()
-  // } catch (err) {
-  //   console.log(err);
-  // }
+  

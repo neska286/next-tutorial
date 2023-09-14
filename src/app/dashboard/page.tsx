@@ -103,6 +103,16 @@ const handleSubmit = async (e) => {
   }
 };
 
+async function handleDelete(postId){
+  console.log('clicked')
+try{
+  await fetch(`/api/posts/${postId}`,{
+    method:"DELETE"
+  })
+}catch(error){
+  console.log(error)
+}
+}
 
   // console.log("data", data);
  if(session.status === 'authenticated'){
@@ -119,7 +129,7 @@ const handleSubmit = async (e) => {
               <h2 className={styles.postTitle}>{post.title}</h2>
               <span
                 className={styles.delete}
-                // onClick={() => handleDelete(post._id)}
+                onClick={() => handleDelete(post._id)}
               >
                 X
               </span>
