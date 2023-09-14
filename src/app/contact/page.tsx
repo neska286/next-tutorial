@@ -3,6 +3,13 @@ import Button from '@/components/Button'
 import React from 'react'
 import styles from './contact.module.css'
 import Image from 'next/image'
+import { Metadata } from 'next'
+import ContactForm from '@/components/ContactForm'
+
+export const metadata: Metadata = {
+  title: 'Contact Information',
+  description: 'This is the Description',
+}
 
 const Contact = () => {
   return (
@@ -17,17 +24,7 @@ const Contact = () => {
             className={styles.image}
           />
         </div>
-        <form className={styles.form}>
-          <input type="text" placeholder="name" className={styles.input} />
-          <input type="text" placeholder="email" className={styles.input} />
-          <textarea
-            className={styles.textArea}
-            placeholder="message"
-            // cols="30"
-            // rows="10"
-          ></textarea>
-          <Button url="#" text="Send"/>
-        </form>
+     <ContactForm/>
       </div>
     </div>
   )

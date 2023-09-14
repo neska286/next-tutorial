@@ -1,7 +1,9 @@
+'use client'
 import Link from 'next/link'
 import React from 'react'
 import styles from './navbar.module.css'
 import DarkModeToggle from '../DarkModeToggle'
+import { signOut, useSession } from 'next-auth/react'
 
 const pages = [
     {id:1,name:"Home",path:"/"},
@@ -12,6 +14,11 @@ const pages = [
     {id:6,name:"Dashboard",path:"/dashboard"},
 ]
 const NavBar = () => {
+  const session  = useSession()
+  const handleSignOut = async () => {
+    // You can customize signOut with options if needed
+    await signOut();
+  };
   return (
     <div className={styles.container}>
         <Link className={styles.logo} href="/">
@@ -24,9 +31,12 @@ const NavBar = () => {
           {page.name}
         </Link>
         ))}
-         <button className={styles.logout}>
+
+        {session.status === 'authenticated'  && (
+         <button className={styles.logout} onClick={handleSignOut}>
             Logout
           </button>
+          )}
          </div>
     </div>
   )
